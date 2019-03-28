@@ -13,12 +13,13 @@ public class RFIBManager : MonoBehaviour
     public GameParameter gameParameter;
 
     public Dictionary<string, bool> tagSensing;
+    public Dictionary<string, int> tagMissTime;
 
     #region RFIB parameter
-    readonly short[] EnableAntenna = {1, 2, 3, 4};       // reader port
-    readonly string ReaderIP = "192.168.1.96";           // 到時再說
-    readonly double ReaderPower = 32, Sensitive = -70;   // 功率, 敏感度
-    readonly bool Flag_ToConnectTheReade = false;        // false就不會連reader
+    readonly short[] EnableAntenna = {1};       // reader port
+    readonly string ReaderIP = "192.168.1.94";           // 到時再說
+    readonly double ReaderPower = 30, Sensitive = -70;   // 功率, 敏感度
+    readonly bool Flag_ToConnectTheReade = true;        // false就不會連reader
 
     readonly bool showSysMesg = true;
     readonly bool showReceiveTag = true;
@@ -57,10 +58,12 @@ public class RFIBManager : MonoBehaviour
         #endregion
 
         tagSensing = new Dictionary<string, bool>();
+        tagMissTime = new Dictionary<string, int>();
 
         foreach (var dic in gameParameter.unitDic)
         {
             tagSensing.Add(dic.Key, false);
+            tagMissTime.Add(dic.Key, 0);
         }
     }
 
@@ -68,8 +71,10 @@ public class RFIBManager : MonoBehaviour
     void Update()
     {
         RFIB.statesUpdate();
+        CountTagTime();
         SenseID();
         KeyPressed();
+        //Debug.Log(RFIB.IfContainTag("8940 0000 2222 0101 0001"));
     }
 
     // 在開始接收ID前，這邊要將接收到的地板ID進行配對編號。
@@ -90,15 +95,27 @@ public class RFIBManager : MonoBehaviour
         }
     }
 
-    public void SenseID()
+    public void CountTagTime()
     {
         foreach (var dic in gameParameter.unitDic)
         {
             if (RFIB.IfContainTag(dic.Key))
             {
                 tagSensing[dic.Key] = true;
+                tagMissTime[dic.Key] = 0;
             }
             else
+            {
+                tagMissTime[dic.Key] += 1;
+            }
+        }
+    }
+
+    public void SenseID()
+    {
+        foreach (var dic in gameParameter.unitDic)
+        {
+            if (tagMissTime[dic.Key] > 10)
             {
                 tagSensing[dic.Key] = false;
             }

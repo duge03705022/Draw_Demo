@@ -394,19 +394,20 @@ public class RFIBricks_Cores
 		foreach (Tag tag in report)
 		{
 			//Debug.Log(System.DateTime.UtcNow);
-			//Debug.Log(System.DateTime.UtcNow+ " @ OnTagsReported:" +tag.Epc);
+			Debug.Log(System.DateTime.UtcNow+ " @ OnTagsReported:" +tag.Epc);
 			string ID = tag.Epc + "";
 			if(ID.Equals("7427 0000 9201 0301 0001")){
 				ID = "7429 0000 9401 0101 0001";
 			}
 
-			//if (Flag_ShowReceivedTag)
-			//Debug.Log("OnTagsReported():" + ID);
+            //if (Flag_ShowReceivedTag)
+            //Debug.Log("OnTagsReported():" + ID);
 
-			//if (Flag_DetectTheNoiseTags)
-			//	NoiseIDs.Add(ID);
-
-			if (NoiseIDs.Contains(ID) == false)
+            //if (Flag_DetectTheNoiseTags)
+            //	NoiseIDs.Add(ID);
+            X16HS_DetectedTags.Add(ID.Substring(0, 20) + "0001");
+            X16DetectedIDs.Add(ID.Substring(0, 20) + "0001");
+            if (NoiseIDs.Contains(ID) == false)
 				for (int i = 0; i < AllowBlockType.Length; i++)
 				{
 					if (ID.Contains(SystemBaseTag + AllowBlockType[i]) || ID.Contains(SystemBaseTag2 + AllowBlockType[i]))
