@@ -25,7 +25,10 @@ public class GameController : MonoBehaviour
             for (int j = 0; j < gameParameter.drawrow; j++)
             {
                 units[i, j] = Instantiate(unitPrefab, unitParent.transform);
-                units[i, j].transform.localPosition = new Vector3(i - gameParameter.drawCol / 2, j - gameParameter.drawrow / 2, 0);
+                units[i, j].transform.localPosition = new Vector3(
+                    (float)(i - gameParameter.drawCol / 2 + (i / 3 - 1) * 0.1),
+                    (float)(j - gameParameter.drawrow / 2 + (j / 3 - 1) * 0.1),
+                    0);
                 units[i, j].transform.localScale = new Vector3(0.95f, 0.95f, 0.95f);
                 gameParameter.unitDic.Add(tagPrefix + i.ToString().PadLeft(2, '0') + j.ToString().PadLeft(2, '0') + tagSufix, units[i, j]);
             }

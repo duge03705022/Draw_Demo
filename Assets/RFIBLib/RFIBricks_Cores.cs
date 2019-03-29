@@ -405,8 +405,8 @@ public class RFIBricks_Cores
 
             //if (Flag_DetectTheNoiseTags)
             //	NoiseIDs.Add(ID);
-            X16HS_DetectedTags.Add(ID.Substring(0, 20) + "0001");
-            X16DetectedIDs.Add(ID.Substring(0, 20) + "0001");
+            X16HS_DetectedTags.Add(ID);
+            X16DetectedIDs.Add(ID);
             if (NoiseIDs.Contains(ID) == false)
 				for (int i = 0; i < AllowBlockType.Length; i++)
 				{
