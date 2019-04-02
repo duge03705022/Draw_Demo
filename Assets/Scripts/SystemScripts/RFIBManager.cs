@@ -121,160 +121,77 @@ public class RFIBManager : MonoBehaviour
         }
     }
 
+    int mode = 0;
     public void KeyPressed()
     {
-        #region Row
-        if (Input.GetKeyUp("1"))
-            ChangeTestTag("8940 0000 2222 0005 0001");
-        if (Input.GetKeyDown("1"))
-            ChangeTestTag("8940 0000 2222 0005 0001");
-        if (Input.GetKeyUp("2"))
-            ChangeTestTag("8940 0000 2222 0105 0001");
-        if (Input.GetKeyDown("2"))
-            ChangeTestTag("8940 0000 2222 0105 0001");
-        if (Input.GetKeyUp("3"))
-            ChangeTestTag("8940 0000 2222 0205 0001");
-        if (Input.GetKeyDown("3"))
-            ChangeTestTag("8940 0000 2222 0205 0001");
-        if (Input.GetKeyUp("4"))
-            ChangeTestTag("8940 0000 2222 0305 0001");
-        if (Input.GetKeyDown("4"))
-            ChangeTestTag("8940 0000 2222 0305 0001");
-        if (Input.GetKeyUp("5"))
-            ChangeTestTag("8940 0000 2222 0405 0001");
-        if (Input.GetKeyDown("5"))
-            ChangeTestTag("8940 0000 2222 0405 0001");
-        if (Input.GetKeyUp("6"))
-            ChangeTestTag("8940 0000 2222 0505 0001");
-        if (Input.GetKeyDown("6"))
-            ChangeTestTag("8940 0000 2222 0505 0001");
-        if (Input.GetKeyUp("7"))
-            ChangeTestTag("8940 0000 2222 0605 0001");
-        if (Input.GetKeyDown("7"))
-            ChangeTestTag("8940 0000 2222 0605 0001");
-        if (Input.GetKeyUp("8"))
-            ChangeTestTag("8940 0000 2222 0705 0001");
-        if (Input.GetKeyDown("8"))
-            ChangeTestTag("8940 0000 2222 0705 0001");
-        if (Input.GetKeyUp("9"))
-            ChangeTestTag("8940 0000 2222 0805 0001");
-        if (Input.GetKeyDown("9"))
-            ChangeTestTag("8940 0000 2222 0805 0001");
+        if (mode == 0)
+        {
+            #region Row
+            GetKey("1", "8940 0000 2222 0408 0001");
+            GetKey("2", "8940 0000 2222 0407 0001");
+            GetKey("3", "8940 0000 2222 0406 0001");
+            GetKey("4", "8940 0000 2222 0405 0001");
+            GetKey("5", "8940 0000 2222 0404 0001");
+            GetKey("6", "8940 0000 2222 0403 0001");
+            GetKey("7", "8940 0000 2222 0402 0001");
+            GetKey("8", "8940 0000 2222 0401 0001");
+            GetKey("9", "8940 0000 2222 0400 0001");
 
-        #endregion
+            #endregion
 
-        #region Col
-        if (Input.GetKeyUp("q"))
-            ChangeTestTag("8940 0000 2222 0608 0001");
-        if (Input.GetKeyDown("q"))
-            ChangeTestTag("8940 0000 2222 0608 0001");
-        if (Input.GetKeyUp("w"))
-            ChangeTestTag("8940 0000 2222 0607 0001");
-        if (Input.GetKeyDown("w"))
-            ChangeTestTag("8940 0000 2222 0607 0001");
-        if (Input.GetKeyUp("e"))
-            ChangeTestTag("8940 0000 2222 0606 0001");
-        if (Input.GetKeyDown("e"))
-            ChangeTestTag("8940 0000 2222 0606 0001");
-        if (Input.GetKeyUp("r"))
-            ChangeTestTag("8940 0000 2222 0605 0001");
-        if (Input.GetKeyDown("r"))
-            ChangeTestTag("8940 0000 2222 0605 0001");
-        if (Input.GetKeyUp("t"))
-            ChangeTestTag("8940 0000 2222 0604 0001");
-        if (Input.GetKeyDown("t"))
-            ChangeTestTag("8940 0000 2222 0604 0001");
-        if (Input.GetKeyUp("y"))
-            ChangeTestTag("8940 0000 2222 0603 0001");
-        if (Input.GetKeyDown("y"))
-            ChangeTestTag("8940 0000 2222 0603 0001");
-        if (Input.GetKeyUp("u"))
-            ChangeTestTag("8940 0000 2222 0602 0001");
-        if (Input.GetKeyDown("u"))
-            ChangeTestTag("8940 0000 2222 0602 0001");
-        if (Input.GetKeyUp("i"))
-            ChangeTestTag("8940 0000 2222 0601 0001");
-        if (Input.GetKeyDown("i"))
-            ChangeTestTag("8940 0000 2222 0601 0001");
-        if (Input.GetKeyUp("o"))
-            ChangeTestTag("8940 0000 2222 0600 0001");
-        if (Input.GetKeyDown("o"))
-            ChangeTestTag("8940 0000 2222 0600 0001");
+            #region Col
+            GetKey("q", "8940 0000 2222 0004 0001");
+            GetKey("w", "8940 0000 2222 0104 0001");
+            GetKey("e", "8940 0000 2222 0204 0001");
+            GetKey("r", "8940 0000 2222 0304 0001");
+            GetKey("t", "8940 0000 2222 0404 0001");
+            GetKey("y", "8940 0000 2222 0504 0001");
+            GetKey("u", "8940 0000 2222 0604 0001");
+            GetKey("i", "8940 0000 2222 0704 0001");
+            GetKey("o", "8940 0000 2222 0804 0001");
 
-        #endregion
-        if (Input.GetKeyUp("a"))
-            ChangeTestTag("8940 0000 2222 0007 0001");
-        if (Input.GetKeyDown("a"))
-            ChangeTestTag("8940 0000 2222 0007 0001");
-        if (Input.GetKeyUp("s"))
-            ChangeTestTag("8940 0000 2222 0107 0001");
-        if (Input.GetKeyDown("s"))
-            ChangeTestTag("8940 0000 2222 0107 0001");
-        if (Input.GetKeyUp("d"))
-            ChangeTestTag("8940 0000 2222 0207 0001");
-        if (Input.GetKeyDown("d"))
-            ChangeTestTag("8940 0000 2222 0207 0001");
-        if (Input.GetKeyUp("f"))
-            ChangeTestTag("8940 0000 2222 0307 0001");
-        if (Input.GetKeyDown("f"))
-            ChangeTestTag("8940 0000 2222 0307 0001");
-        if (Input.GetKeyUp("g"))
-            ChangeTestTag("8940 0000 2222 0407 0001");
-        if (Input.GetKeyDown("g"))
-            ChangeTestTag("8940 0000 2222 0407 0001");
-        if (Input.GetKeyUp("h"))
-            ChangeTestTag("8940 0000 2222 0406 0001");
-        if (Input.GetKeyDown("h"))
-            ChangeTestTag("8940 0000 2222 0406 0001");
-        if (Input.GetKeyUp("j"))
-            ChangeTestTag("8940 0000 2222 0405 0001");
-        if (Input.GetKeyDown("j"))
-            ChangeTestTag("8940 0000 2222 0405 0001");
-        if (Input.GetKeyUp("k"))
-            ChangeTestTag("8940 0000 2222 0404 0001");
-        if (Input.GetKeyDown("k"))
-            ChangeTestTag("8940 0000 2222 0404 0001");
-        if (Input.GetKeyUp("l"))
-            ChangeTestTag("8940 0000 2222 0403 0001");
-        if (Input.GetKeyDown("l"))
-            ChangeTestTag("8940 0000 2222 0403 0001");
-        if (Input.GetKeyUp(","))
-            ChangeTestTag("8940 0000 2222 0303 0001");
-        if (Input.GetKeyDown(","))
-            ChangeTestTag("8940 0000 2222 0303 0001");
-        if (Input.GetKeyUp("m"))
-            ChangeTestTag("8940 0000 2222 0302 0001");
-        if (Input.GetKeyDown("m"))
-            ChangeTestTag("8940 0000 2222 0302 0001");
-        if (Input.GetKeyUp("n"))
-            ChangeTestTag("8940 0000 2222 0301 0001");
-        if (Input.GetKeyDown("n"))
-            ChangeTestTag("8940 0000 2222 0301 0001");
-        if (Input.GetKeyUp("b"))
-            ChangeTestTag("8940 0000 2222 0300 0001");
-        if (Input.GetKeyDown("b"))
-            ChangeTestTag("8940 0000 2222 0300 0001");
-        if (Input.GetKeyUp("v"))
-            ChangeTestTag("8940 0000 2222 0400 0001");
-        if (Input.GetKeyDown("v"))
-            ChangeTestTag("8940 0000 2222 0400 0001");
-        if (Input.GetKeyUp("c"))
-            ChangeTestTag("8940 0000 2222 0500 0001");
-        if (Input.GetKeyDown("c"))
-            ChangeTestTag("8940 0000 2222 0500 0001");
-        if (Input.GetKeyUp("x"))
-            ChangeTestTag("8940 0000 2222 0600 0001");
-        if (Input.GetKeyDown("x"))
-            ChangeTestTag("8940 0000 2222 0600 0001");
-        if (Input.GetKeyUp("z"))
-            ChangeTestTag("8940 0000 2222 0700 0001");
-        if (Input.GetKeyDown("z"))
-            ChangeTestTag("8940 0000 2222 0700 0001");
+            #endregion
 
-        #region Line
+            #region Line
+            GetKey("a", "8940 0000 2222 0708 0001");
+            GetKey("s", "8940 0000 2222 0707 0001");
+            GetKey("d", "8940 0000 2222 0706 0001");
+            GetKey("f", "8940 0000 2222 0705 0001");
+            GetKey("h", "8940 0000 2222 0704 0001");
+            GetKey("j", "8940 0000 2222 0604 0001");
+            GetKey("k", "8940 0000 2222 0504 0001");
+            GetKey(",", "8940 0000 2222 0404 0001");
+            GetKey("m", "8940 0000 2222 0403 0001");
+            GetKey("n", "8940 0000 2222 0402 0001");
+            GetKey("b", "8940 0000 2222 0401 0001");
+            GetKey("v", "8940 0000 2222 0301 0001");
+            GetKey("c", "8940 0000 2222 0201 0001");
+            GetKey("x", "8940 0000 2222 0101 0001");
+            GetKey("z", "8940 0000 2222 0001 0001");
 
+            #endregion
+        }
+        else if (mode == 1)
+        {
+            #region two
+            GetKey("1", "8940 0000 2222 0005 0001");
+            GetKey("2", "8940 0000 2222 0105 0001");
+            GetKey("3", "8940 0000 2222 0205 0001");
+            GetKey("4", "8940 0000 2222 0204 0001");
+            GetKey("5", "8940 0000 2222 0203 0001");
+            GetKey("6", "8940 0000 2222 0103 0001");
+            GetKey("t", "8940 0000 2222 0003 0001");
+            GetKey("r", "8940 0000 2222 0002 0001");
+            GetKey("e", "8940 0000 2222 0001 0001");
+            GetKey("w", "8940 0000 2222 0000 0001");
+            GetKey("q", "8940 0000 2222 0100 0001");
+            GetKey("q", "8940 0000 2222 0200 0001");
 
-        #endregion
+            #endregion
+        }
+
+        if (Input.GetKeyDown("space"))
+            mode++;
 
         #region Information
         if (Input.GetKeyUp(";"))
@@ -292,11 +209,19 @@ public class RFIBManager : MonoBehaviour
         #endregion
     }
 
-    public void ChangeTestTag(string tag)
+    public void ChangeTestTag(string tag, bool TorF)
     {
-        if (!RFIB.IfContainTag(tag))
+        if (TorF)
             RFIB._Testing_AddHoldingTag(tag);
         else
             RFIB._Testing_RemoveHoldingTag(tag);
+    }
+
+    public void GetKey(string key, string tag)
+    {
+        if (Input.GetKeyDown(key))
+            ChangeTestTag(tag, true);
+        if (Input.GetKeyUp(key))
+            ChangeTestTag(tag, false);
     }
 }
